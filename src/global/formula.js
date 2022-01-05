@@ -321,11 +321,11 @@ const luckysheetformula = {
             sheetmanage.changeSheetExec(_this.rangetosheet);
         }
     },
-    xssDeal: function(str) {
+    xssDeal: function (str) {
         if (typeof str !== 'string') return str;
         return str.replace(/<script>/g, '&lt;script&gt;').replace(/<\/script>/, '&lt;/script&gt;');
     },
-    fucntionboxshow: function(r, c) {
+    fucntionboxshow: function (r, c) {
 
         if (!checkProtectionCellHidden(r, c, Store.currentSheetIndex)) {
             $("#luckysheet-functionbox-cell").html("");
@@ -1269,9 +1269,9 @@ const luckysheetformula = {
         let isCurInline = (inputText.slice(0, 1) != "=" && inputHtml.substr(0, 5) == "<span");
 
         let isCopyVal = false;
-        if(!isCurInline && inputText && inputText.length > 0) {
+        if (!isCurInline && inputText && inputText.length > 0) {
             let splitArr = inputText.replace(/\r\n/g, "_x000D_").replace(/&#13;&#10;/g, "_x000D_").replace(/\r/g, "_x000D_").replace(/\n/g, "_x000D_").split("_x000D_");
-            if(splitArr.length > 1) {
+            if (splitArr.length > 1) {
                 isCopyVal = true;
                 isCurInline = true;
                 inputText = splitArr.join('\r\n');
@@ -1299,10 +1299,10 @@ const luckysheetformula = {
 
             curv.ct.t = "inlineStr";
             curv.ct.s = convertSpanToShareString($input.find("span"));
-            if(isCopyVal) {
+            if (isCopyVal) {
                 curv.ct.s = [
                     {
-                    v: inputText,
+                        v: inputText,
                     }
                 ];
             }
@@ -3336,7 +3336,7 @@ const luckysheetformula = {
         let value1 = $editer.html(),
             value1txt = $editer.text();
         let xssDeal = this.xssDeal
-        setTimeout(function() {
+        setTimeout(function () {
             let value = $editer.text(),
                 valuetxt = value;
             value = xssDeal(value);
@@ -4198,14 +4198,14 @@ const luckysheetformula = {
         for (let i = 0; i < luckysheetfile.length; i++) {
             let file = luckysheetfile[i];
             let calcChain = file.calcChain;
-            
+
             /* 备注：再次加载表格获取的数据可能是JSON字符串格式(需要进行发序列化处理) */
-            if(calcChain){
+            if (calcChain) {
                 let tempCalcChain = [];
-                calcChain.forEach((item,idx)=>{
-                    if(typeof item === "string"){
+                calcChain.forEach((item, idx) => {
+                    if (typeof item === "string") {
                         tempCalcChain.push(JSON.parse(item));
-                    }else{
+                    } else {
                         tempCalcChain.push(item);
                     }
                 })
@@ -4667,7 +4667,7 @@ const luckysheetformula = {
                         //if (funcstack[i - 1] == "'") {//配对的单引号后最后一个字符不能是单引号
                         //    代码到了此处应该是公式错误
                         //} else {
-                            matchConfig.squote -= 1;
+                        matchConfig.squote -= 1;
                         //}
                     }
                 }
@@ -5213,10 +5213,10 @@ const luckysheetformula = {
                             else {//如果下一个字符不是'代表单引号结束
                                 //if (calc_funcStr.charAt(i - 1) == "'") {//配对的单引号后最后一个字符不能是单引号
                                 //    ;//到此处说明公式错误
-                                    point = i + 1;
-                                    formulaTextArray.push(calc_funcStr.substring(squote, point));
-                                    sq_end_array.push(formulaTextArray.length - 1);
-                                    squote = -1;
+                                point = i + 1;
+                                formulaTextArray.push(calc_funcStr.substring(squote, point));
+                                sq_end_array.push(formulaTextArray.length - 1);
+                                squote = -1;
                                 //} else {
                                 //    point = i + 1;
                                 //    formulaTextArray.push(calc_funcStr.substring(squote, point));
