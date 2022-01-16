@@ -925,9 +925,9 @@ const luckysheetlodingHTML = function (target, coverConfig) {
     }
 
     function close() {
-        if (id) {
-            $("#" + id).hide();
-        }
+        // if (id) {
+        //     $("#" + id).hide();
+        // }
     }
     return {
         el: loading,
