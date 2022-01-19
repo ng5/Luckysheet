@@ -1261,7 +1261,6 @@ const luckysheetformula = {
         }
 
         let curv = Store.flowdata[r][c];
-
         // Store old value for hook function
         const oldValue = JSON.stringify(curv);
 
@@ -1325,7 +1324,7 @@ const luckysheetformula = {
                 }
             }
             else if (curv != null && curv.qp != 1) {
-                if (getObjType(curv) == "object" && (value == curv.f || value == curv.v || value == curv.m)) {
+                if (getObjType(curv) == "object" && !curv.f && (value == curv.v || value == curv.m)) {
                     _this.cancelNormalSelected();
                     return;
                 }
